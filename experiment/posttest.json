@@ -2,12 +2,13 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+
+      "question": "1. What happens to the average output voltage of a single-phase controlled bridge rectifier when the firing angle “α” increases?",
+      "answers": {        
+        "a": "It decreases",
+        "b": "It increases",
+        "c": "It remains constant",
+        "d": "It becomes zero"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -18,13 +19,72 @@
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
+      
     {
-      "question": "This is a Sample Question 2?",
+
+      "question": "2. Which parameter directly affects the RMS value of the output voltage in a single-phase controlled bridge rectifier with resistive load?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Peak value of the output voltage",
+        "b": "Firing angle of the thyristors",
+        "c": "Frequency of the AC supply",
+        "d": "Number of cycles per second"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    
+    {
+
+      "question": "3. The maximum output voltage of a single-phase controlled bridge rectifier occurs when:",
+      "answers": {
+        "a": "The firing angle (α) is zero",
+        "b": "The firing angle (α)  is π/2 radians",
+        "c": "The firing angle (α)  is π radians",
+        "d": "The firing angle (α)  is π/3 radians"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+        
+    {
+
+      "question": "4. Which component is primarily used to reduce the output voltage ripple of a single-phase controlled bridge rectifier?",
+      "answers": {
+        "a": "Capacitor",
+        "b": "Diode",
+        "c": "Resistor",
+        "d": "Transformer"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+        
+    {
+
+      "question": "5. In a single-phase controlled bridge rectifier operating from a 230 V RMS AC supply, if the firing angle of the thyristors is 30 degrees (π/6 radians), what is the average output voltage?",
+      "answers": {
+        "a": "100 V",
+        "b": "115 V",
+        "c": "193.18 V",
+        "d": "160.18 V"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -33,6 +93,26 @@
         "d": "Explanation 2"
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+
+    {
+      
+
+      "question": "6. A single-phase controlled bridge rectifier with a load resistance of 10 Ω and a firing angle of 45 degrees (π/4 radians) operates from a 120 V RMS AC supply. What is the average output current?",
+      "answers": {
+        "a": "6.36 A",
+        "b": "7.07 A",
+        "c": "8.49 A",
+        "d": "9.22 A"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "d",
       "difficulty": "beginner"
     }
   ]
