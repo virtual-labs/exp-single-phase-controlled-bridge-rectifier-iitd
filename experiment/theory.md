@@ -14,7 +14,7 @@ Thyristor-based rectifiers, which convert AC –to- DC, are extensively used in 
 <br>
 
 <center>
-  <img src="images/th2.png" height="700px">
+  <img src="images/th2.png" height="310px">
   
 <br>Fig. 2. Circuit diagram of controlled rectifier.
 
@@ -26,7 +26,7 @@ Thyristor-based rectifiers, which convert AC –to- DC, are extensively used in 
 <td style="width:50%">
 <center>
 
-<img src="images/th3.png">
+<img src="images/th3.png" height="325px">
 <br><br>
 Fig. 3(a). Positive-half cycle.
 <br><br>
@@ -36,7 +36,7 @@ Fig. 3(a). Positive-half cycle.
   
 <center>
 
-<img src="images/th4.png">
+<img src="images/th4.png" height="325px">
 <br><br>
 Fig. 3(b). Negative-half cycle.
 <br><br>
@@ -55,7 +55,7 @@ The average output voltage and currents are defined by:
 
 <br>
 <div style="float: left; width:50%;">
-  <img src="images/th5.png" height="60px">
+  <img src="images/th5.png" height="55px">
 </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(1)
@@ -80,7 +80,7 @@ The RMS value of the output voltage and current waveforms are formulated as:<br>
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th7.png" height="70px">
+  <img src="images/th7.png" height="75px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(3)
@@ -93,7 +93,7 @@ The RMS value of the output voltage and current waveforms are formulated as:<br>
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th8.png" height="60px">
+  <img src="images/th8.png" height="65px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(4)
@@ -106,7 +106,7 @@ The RMS value of the output voltage and current waveforms are formulated as:<br>
 </div><br>
 
 <div style="float: left; width:50%;">
-  <img src="images/th9.png" height="50px">
+  <img src="images/th9.png" height="52px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(5)
@@ -120,7 +120,7 @@ Apparent power is:
 </div><br>
 
 <div style="float: left; width:50%;">
-  <img src="images/th10.png" height="50px">
+  <img src="images/th10.png" height="70px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(6)
@@ -135,7 +135,7 @@ RMS value of the fundamental current is:
 
 
 <div style="float: left; width:50%;">
-  <img src="images/th11.png" height="60px">
+  <img src="images/th11.png" height="70px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(7)
@@ -148,7 +148,7 @@ RMS value of the fundamental current is:
 <td style="width:50%">
 <center>
 
-<img src="images/th12.png">
+<img src="images/th12.png" height="610px;">
 <br><br>
 (a) Waveforms with R-Load.
 <br><br>
@@ -158,7 +158,7 @@ RMS value of the fundamental current is:
   
 <center>
 
-<img src="images/th13.png">
+<img src="images/th13.png" height="610px;">
 <br><br>
 (b) Waveforms with RL-Load.
 <br><br>
@@ -178,7 +178,7 @@ The RMS value of input current is:
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th14.png" height="60px">
+  <img src="images/th14.png" height="75px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(8)
@@ -205,7 +205,7 @@ Displacement factor:
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th16.png" height="78px">
+  <img src="images/th16.png" height="40px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(10)
@@ -218,7 +218,7 @@ Power factor:
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th17.png" height="60px">
+  <img src="images/th17.png" height="70px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(11)
@@ -231,7 +231,7 @@ Output power:
 </div>
 
 <div style="float: left; width:50%;">
-  <img src="images/th18.png" height="50px">
+  <img src="images/th18.png" height="55px">
       </div>
 <div style="float: right; width:50%; text-align:center;">
     ..(12)
