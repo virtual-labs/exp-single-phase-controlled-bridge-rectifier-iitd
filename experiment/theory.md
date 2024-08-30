@@ -141,8 +141,8 @@ RMS value of the fundamental current is:
     ..(7)
 
 </div>
-<br><br>
-
+<br>
+<br>
 <table border="0" align="center" style="width:100%; border:none;">
   <tr>
 <td style="width:50%">
