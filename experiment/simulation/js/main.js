@@ -322,7 +322,9 @@ let student_name = "";
 
 // ! text to audio
 
-const textToSpeach = (text, speak = true) => {
+const textToSpeach = (text,speak=true) => {
+  // for filter <sub></sub>
+  text = text.replaceAll("<sub>"," ").replaceAll("</sub>"," ")
   let utterance = new SpeechSynthesisUtterance();
   utterance.text = text;
   utterance.voice = window.speechSynthesis.getVoices()[0];
@@ -1359,7 +1361,7 @@ const Scenes = {
         let imgToShow = null;
         if (isConnectionsCorrect) {
           Scenes.items.tempTitle16.hide();
-          setCC("Well Done, This is 'single-phase bridge inverter'");
+          setCC("Well done formulation of circuit is correct.");
 
           // * destroy all the connection
           Scenes.items.btn_reset.item.click();
@@ -1455,7 +1457,7 @@ const Scenes = {
             });
           }
         } else {
-          setCC("Incorrect connections, try again");
+          setCC("Incorrect connections, press 'RESET' and try again");
           let st = {
             color: "red",
             backgroundColor: "white",
@@ -1482,7 +1484,7 @@ const Scenes = {
               }, 4000);
             },
           });
-          Dom.setBlinkArrowRed(true, 885, 10, 30, null, 90).play();
+          Dom.setBlinkArrowRed(true, 765, 2, 30, null, 180).play();
         }
       }
 
@@ -2132,7 +2134,7 @@ const Scenes = {
       }
 
       setCC(
-        "Select any one, to show the performance of controlled bridge rectifier either with R-load or RL-load."
+        "Select any one option to understand the rectifier  AC to  DC conversion."
       );
       return true;
     }),
@@ -2219,7 +2221,7 @@ const Scenes = {
 
 
       items.r_load_v_red.set(267, 157, 78);
-      items.r_load_a_blur.set(331, 144, 37);
+      items.r_load_a_blur.set(331, 143, 40).zIndex(3);
       items.r_load_v_brown.set(347, 79, 85);
       items.r_load_v_blue.set(581, 141, 85);
 
@@ -2236,7 +2238,7 @@ const Scenes = {
       let green = [
         items.r_load_a_green_graph
           .set(10, 268 + 10, 144)
-          .zIndex(1)
+          .zIndex(3)
           .hide(),
         items.graph_bcg_2.set(9, 265 + 10, 152, 329).hide(),
         items.graph_helper_2.set(42, 300, 115, 289).zIndex(2).hide(),
@@ -2329,7 +2331,7 @@ const Scenes = {
         red.forEach((ele) => {
           ele.show();
         });
-        setCC("Here, the nature of ac input  voltage waveform is shown.");
+        setCC("Here, the nature of ac input voltage waveform is shown.");
         remove(helpers[0], widths[0]);
         graphs[0].show();
         clickCountIdx++;
@@ -2342,7 +2344,7 @@ const Scenes = {
           ele.show();
         });
         setCC(
-          "Here, the ac input current waveform is shown.  the value of inductor decides the smoothness of the waveform and it can be a perfect square wave."
+          "Here, the ac input current waveform is shown and its variation  closely follows the load voltage."
         );
         remove(helpers[1], widths[1]);
         graphs[1].show();
@@ -2372,10 +2374,10 @@ const Scenes = {
         });
 
         setCC(
-          "Here, the load voltage and load current waveforms with RL  load is shown. "
+          "Here, the nature of load voltage waveform with resistive load is shown. Load voltage is present from the time instant of firing angle and "
         );
         setCC(
-          " Based on the firing angle of the gate terminal,the thyristors start conducting and  voltage and current waveforms across load obtained."
+          "it is zero upto the time instant of firing angle. It is possible to adjust the magnitude of load voltage by varying the firing angle alpha."
         );
 
         remove(helpers[3], widths[3]);
@@ -2397,6 +2399,7 @@ const Scenes = {
 
       return true;
     }),
+     
     //! option 2 Controlled Bridge Rectifier with RL-Load : Steady-state Waveforms
     (step8 = function () {
       setIsProcessRunning(true);
@@ -2432,7 +2435,7 @@ const Scenes = {
       let green = [
         items.rl_load_a_green
           .set(10, 268 + 10, 144)
-          .zIndex(1)
+          .zIndex(3)
           .hide(),
         items.graph_bcg_2.set(9, 265 + 10, 152 + 11, 329).hide(),
         items.graph_helper_2.set(42, 300, 115, 289).zIndex(2).hide(),
@@ -2484,7 +2487,7 @@ const Scenes = {
       ];
       let compo = [
         items.r_load_v_red.set(267, 157, 78),
-        items.r_load_a_blur.set(331, 144, 37),
+        items.r_load_a_blur.set(331, 143, 40).zIndex(3),
         items.r_load_v_brown.set(347, 79, 85),
         items.r_load_v_blue.set(575, 135, 112),
       ];
@@ -2528,7 +2531,7 @@ const Scenes = {
         red.forEach((ele) => {
           ele.show();
         });
-        setCC("Here, the nature of ac input  voltage waveform is shown.");
+        setCC("Here, the ac input voltage waveform is shown.");
         remove(helpers[0], widths[0]);
         graphs[0].show();
         clickCountIdx++;
@@ -2575,7 +2578,7 @@ const Scenes = {
           "Here, the load voltage and load current waveforms with RL  load is shown. "
         );
         setCC(
-          " Based on the firing angle of the gate terminal,the thyristors start conducting and  voltage and current waveforms across load obtained."
+          "Based on the firing angle of the gate terminal, the thyristors start conducting and  voltage and current waveforms across load obtained."
         );
 
         remove(helpers[3], widths[3]);
@@ -2676,9 +2679,9 @@ const Scenes = {
         fontSize: "15px",
         color: "red",
       }
-      let vAC1TempTitle = Scenes.items.tempTitle30.setContent(`${vAC1}°`).set(83,80).styles(stTemp).hide()
-      let vAC2TempTitle = Scenes.items.tempTitle31.setContent(`${vAC2}°`).set(83,104).styles(stTemp).hide()
-      let vAC3TempTitle = Scenes.items.tempTitle32.setContent(`${vAC3}°`).set(83,129).styles(stTemp).hide()
+      let vAC1TempTitle = Scenes.items.tempTitle30.setContent(`${vAC1}`).set(84,80).styles(stTemp).hide()
+      let vAC2TempTitle = Scenes.items.tempTitle31.setContent(`${vAC2}`).set(84,104).styles(stTemp).hide()
+      let vAC3TempTitle = Scenes.items.tempTitle32.setContent(`${vAC3}`).set(84,129).styles(stTemp).hide()
     
       // Scenes.items.btn_plot.set(698+20, 360, 35).zIndex(2)
 
@@ -2891,6 +2894,7 @@ const Scenes = {
           "Harmonic Factor (HF)",
           "Power Factor (PF)",
         ];
+
         function getDataFromTable() {
           let datas_XY = []; // v0,i0,p0,PF,THD
           let indexForTableColunmDataY = [
@@ -2899,9 +2903,9 @@ const Scenes = {
             [5],
             [6],
             [7],
-            [11],
-            [10],
             [12],
+            [10],
+            [13],
           ];
           let indexForTableColumnDataX = 2;
           indexForTableColunmDataY.forEach((col_idxs) => {
@@ -2995,6 +2999,7 @@ const Scenes = {
                   // Dom.setBlinkArrowRed(-1)
                   // setCC("Simulation Done");
                   // Scenes.currentStep = 5;
+                  setCC("Click 'Next' to go to next step.")
                   Dom.setBlinkArrow(true, 790, 544).play();
                   setIsProcessRunning(false);
                 };
@@ -3114,6 +3119,9 @@ const Scenes = {
               Scenes.items.yLabel.setContent(yLabel)
               Scenes.items.xLabel.setContent(dataLabelX)
 
+              // ! show download button anime
+              Download.playDownloadButtonAnime()
+
               // * show tabf and hide tab
               btnsf[idx].show()
               btnObject.hide()
@@ -3221,8 +3229,8 @@ const Scenes = {
         // dutyRatioValue/d is firing angle
         let vInValue = Number(sliders.v.value)
         let dutyRatioValue = Number(sliders.d.value)
-        let inductanceValue = 10
-        let resistanceValue = 1
+        let inductanceValue = 100
+        let resistanceValue = 10
 
         updateValues(vInValue, dutyRatioValue ,resistanceValue, inductanceValue)
         // ! Can't select same values
@@ -3326,7 +3334,7 @@ const Scenes = {
         //! 11th cell is not responding
         tableRow.cells[12].innerHTML = Number(
           Formulas.rl_load.df(values)
-        ).toFixed(2);
+        ).toFixed(3);
         tableRow.cells[13].innerHTML = Number(
           Formulas.rl_load.pf(values)
         ).toFixed(2);
@@ -3375,11 +3383,11 @@ const Scenes = {
       
 
       items.part_4_1.set(41, -14, 440)
-      items.part_4_2.set(475, -37, 288)
-      items.part_4_3.set(475, 200, 288)
+      items.part_4_2.set(475, -37 - 35, 348)
+      items.part_4_3.set(475, 200 - 35, 348)
 
-      items.helper_1.set(475, -15, 205).zIndex(1)
-      items.helper_2.set(475 ,221, 219).zIndex(1)
+      items.helper_1.set(475, -38, 238).zIndex(1)
+      items.helper_2.set(475 ,196, 249).zIndex(1)
 
         //! working
         function shiftRight(target){
@@ -3422,6 +3430,23 @@ const Scenes = {
 
 
   ],
+  // ! For adding realcurrentstep in every step
+  // ! For tracking the current step accuratly
+  realCurrentStep: null,
+  setRealCurrentStep(){
+    let count = 0
+    this.steps.forEach((step,idx) => {
+      const constCount = count
+      let newStep = () => {
+        this.realCurrentStep = constCount;
+        console.log(`RealCurrentStep: ${this.realCurrentStep}`)
+        return step();
+      };
+
+      count++;
+      this.steps[idx] = newStep
+    });
+  },
   back() {
     //! animation isRunning
     // if (isRunning) {
@@ -3438,6 +3463,9 @@ const Scenes = {
     }
   },
   next() {
+    if(!this.realCurrentStep){
+      Scenes.setRealCurrentStep()
+    }
     //! animation isRunning
     // alert(Scenes.currentStep)
     if (isRunning) {
@@ -3456,7 +3484,7 @@ const Scenes = {
 };
 
 //stepcalling
-Scenes.currentStep = 1;
+Scenes.currentStep = 1
 Scenes.next();
 // Scenes.steps[3]()
 // Scenes.next()

@@ -22,9 +22,24 @@
     <link rel="stylesheet" href="./css/chart.css" />
     <link rel="stylesheet" href="./css/component_styling.css" />
     <link rel="stylesheet" href="./css/sliders.css" />
+    
+    <link href="./toolkit/fix_styling.css" rel="stylesheet" />
+    <link href="./toolkit/toolkit.css" rel="stylesheet" />
+    <link href="./toolkit/main_spinner.css" rel="stylesheet" />
+    <script src="./toolkit/toolkit.js"></script>
   </head>
   <img src="" alt="" />
   <body>
+    <div class="main-spinner">
+      <div class="loader">
+        <span></span>
+      </div>
+      <p class="text">
+        For Better User Experience,
+        <span>reset zoom to 100% <br />(by pressing 'Ctrl + 0')</span> and
+        <span>refresh the page (by pressing 'Ctrl + R')</span>
+      </p>
+    </div>
     <!-- <body  onmousemove="getCursor(event)"> -->
     <!-- Mouse Position -->
     <!-- <div id="demo" style="position: absolute">
@@ -2093,6 +2108,21 @@
             </section>
           </main>
         </div>
+      </div>
+      <div class="toolkit">
+        <div class="btn-group">
+          <!-- <button class="btn mute">
+                <img class="btn-mute btn-logo"
+                    src="./src/images/template_imgs/speech_off_btn.png"
+                    title="Click To Mute"
+                />
+            </button> -->
+          <button class="btn btn-download-pdf" title="Download">
+            <span class="title">Download</span>
+            <img alt="" class="btn-logo" src="./toolkit/btn_download.png" />
+          </button>
+        </div>
+        <img class="blinkArrowYellow" src="./toolkit/setBlinkArrowYellow.png" />
       </div>
     </div>
 
