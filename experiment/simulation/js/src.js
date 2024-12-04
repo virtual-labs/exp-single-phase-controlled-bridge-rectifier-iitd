@@ -126,7 +126,24 @@ const src = {
     hint_box:this.allImgsDom[index++],
 
 
-
+    hw_result_1_1:this.allImgsDom[index++],
+    hw_result_1_2:this.allImgsDom[index++],
+    hw_result_1_3:this.allImgsDom[index++],
+    hw_result_1_4:this.allImgsDom[index++],
+    hw_result_2_1:this.allImgsDom[index++],
+    hw_result_2_2:this.allImgsDom[index++],
+    hw_result_2_3:this.allImgsDom[index++],
+    hw_result_2_4:this.allImgsDom[index++],
+    hw_result_menu_1_1:this.allImgsDom[index++],
+    hw_result_menu_1_2:this.allImgsDom[index++],
+    hw_result_menu_1_3:this.allImgsDom[index++],
+    hw_result_menu_1_4:this.allImgsDom[index++],
+    hw_result_menu_2_1:this.allImgsDom[index++],
+    hw_result_menu_2_2:this.allImgsDom[index++],
+    hw_result_menu_2_3:this.allImgsDom[index++],
+    hw_result_menu_2_4:this.allImgsDom[index++],
+    hw_result_menu_2_5:this.allImgsDom[index++],
+    mask:this.allImgsDom[index++],
 
      
       //! EE19 images end here

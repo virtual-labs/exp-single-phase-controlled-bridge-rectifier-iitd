@@ -553,6 +553,154 @@ class Dom {
       animeWindow.pointerEvents("none");
     }
   }
+  fadeHide(duration = 700, onCompleteCallback = null){
+    anime({
+      targets: this.item,
+      opacity: 0,
+      duration: duration,
+      easing: "easeInOutQuad",
+      complete: ()=>{
+        this.hide()
+        if(onCompleteCallback!=null){
+          onCompleteCallback()
+        }
+      }
+    });
+    return this;
+  }
+  fadeShow(duration = 700, onCompleteCallback = null){
+    this.show().opacity(0)
+    anime({
+      targets: this.item,
+      opacity: 1,
+      duration: duration,
+      easing: "easeInOutQuad",
+      complete: onCompleteCallback
+    });
+    return this;
+  }
+  onClick(callback=null){
+    if(callback==null){
+      this.item.onclick = ()=>{}
+    }else{
+      this.item.onclick = callback
+    }
+    return this
+  }
+  static maskClick(
+    mask,
+    onClick,
+    leftAndDevMode = false,
+    top = 0,
+    height = 100,
+    width = 100,
+    rotate = 0
+  ) {
+    let maskImg = mask;
+    // default px
+    let leftPx = typeof leftAndDevMode === "boolean" ? 0 : leftAndDevMode;
+    maskImg.set(leftPx, top, height, width).rotate(rotate).zIndex(1000);
+    maskImg.styles({ cursor: "pointer" }).onClick(() => {
+      maskImg.styles({ cursor: "unset" });
+      maskImg.zIndex(0);
+      Dom.setBlinkArrowRed(-1)
+      maskImg.onClick(); // it will null
+      if (onClick) {
+        onClick();
+      }
+    });
+
+    if (leftAndDevMode === true) {
+      maskImg.styles({background: "red"})
+    }
+    return maskImg;
+  }
+  static setBlinkArrowOnElement(
+    connectingElement,
+    direction,
+    arrowLeft = null,
+    arrowTop = null
+  ) {
+    let blinkArrow = new Dom(".blinkArrowRed");
+    let arrowHeight = 30;
+    let arrowWidth = 38.25;
+    let arrowRotate = 0;
+    let gap = 6
+
+    // get left top height and width of the connectingElement
+    const connectingElementProps = {
+      left: connectingElement.item.offsetLeft,
+      top: connectingElement.item.offsetTop,
+      right: Number(
+        connectingElement.item.offsetLeft + connectingElement.item.offsetWidth
+      ),
+      bottom: Number(
+        connectingElement.item.offsetTop + connectingElement.item.offsetHeight
+      ),
+      centerX: Number(
+        connectingElement.item.offsetLeft +
+          connectingElement.item.offsetWidth / 2
+      ).toFixed(2),
+      centerY: Number(
+        connectingElement.item.offsetTop +
+          connectingElement.item.offsetHeight / 2
+      ).toFixed(2),
+    };
+
+    // for(let key in  connectingElementProps) {
+    //   console.log(connectingElement.item)
+    //   console.log(`${key}: ${connectingElementProps[key]}`)
+    // }
+
+    switch (direction) {
+      case "left":
+        arrowRotate = 90;
+        arrowLeft = connectingElementProps.left -  arrowWidth - gap;
+        arrowTop = connectingElementProps.centerY - arrowHeight / 2;
+        break;
+
+      case "right":
+        arrowRotate = -90;
+        arrowLeft = connectingElementProps.right + gap;
+        arrowTop = connectingElementProps.centerY - arrowHeight / 2;
+        break;
+
+      case "top":
+        arrowRotate = -180;
+        arrowLeft = connectingElementProps.centerX - arrowWidth / 2;
+        arrowTop = connectingElementProps.top - arrowHeight - gap
+        break;
+
+      case "bottom":
+        arrowRotate = 0;
+        arrowLeft = connectingElementProps.centerX - arrowWidth / 2;
+        arrowTop = connectingElementProps.bottom + gap;
+        break;
+    }
+
+    blinkArrow.set(arrowLeft, arrowTop, arrowHeight, arrowWidth).rotate(arrowRotate + 90).zIndex(10000);
+    let y = 20;
+
+    var blink = anime({
+      targets: blinkArrow.item,
+      easing: "easeInOutQuad",
+      opacity: 1,
+      translateX: y,
+      direction: "alternate",
+      loop: true,
+      autoplay: false,
+      duration: 300,
+    });
+    return {
+      reset() {
+        blinkArrow.hide();
+        blink.reset();
+      },
+      play() {
+        blink.play();
+      },
+    };
+  }
   static setBlinkArrowRed(
     isX = true,
     left = null,
@@ -1037,6 +1185,26 @@ const Scenes = {
     btn_hint: new Dom("btn_hint"),
     hint_box: new Dom("hint_box"),
 
+    hw_result_1_1 : new Dom("hw_result_1_1"),
+hw_result_1_2 : new Dom("hw_result_1_2"),
+hw_result_1_3 : new Dom("hw_result_1_3"),
+hw_result_1_4 : new Dom("hw_result_1_4"),
+hw_result_2_1 : new Dom("hw_result_2_1"),
+hw_result_2_2 : new Dom("hw_result_2_2"),
+hw_result_2_3 : new Dom("hw_result_2_3"),
+hw_result_2_4 : new Dom("hw_result_2_4"),
+hw_result_menu_1_1 : new Dom("hw_result_menu_1_1"),
+hw_result_menu_1_2 : new Dom("hw_result_menu_1_2"),
+hw_result_menu_1_3 : new Dom("hw_result_menu_1_3"),
+hw_result_menu_1_4 : new Dom("hw_result_menu_1_4"),
+hw_result_menu_2_1 : new Dom("hw_result_menu_2_1"),
+hw_result_menu_2_2 : new Dom("hw_result_menu_2_2"),
+hw_result_menu_2_3 : new Dom("hw_result_menu_2_3"),
+hw_result_menu_2_4 : new Dom("hw_result_menu_2_4"),
+hw_result_menu_2_5 : new Dom("hw_result_menu_2_5"),
+mask : new Dom("mask"),
+
+
     //!EE19 images end here
 
     //! EE15 tables
@@ -1158,7 +1326,7 @@ const Scenes = {
   // for typing hello text
   intru: null,
   intruVoice: null,
-  optionsDone: [0, 0, 0, 0],
+  optionsDone: [0,0,0,0],
   steps: [
     (intro = () => {
       // remove all dom element for back and setProcessRunning
@@ -2013,16 +2181,16 @@ const Scenes = {
     //! select option
     (step4 = function () {
       setIsProcessRunning(true);
-      Scenes.items.btn_next.show();
-
+      
       // todo all previous elements hide
       Dom.hideAll();
-
+      
       // ! destroy connection
       // Scenes.items.btn_reset.item.click()
       getAll(".jtk-endpoint").forEach((ele) => {
         ele.style.display = "none";
       });
+      Scenes.items.btn_next.show();
       Scenes.items.contentAdderBox.item.innerHTML = "";
       // Scenes.changeHeader(2, -235, 28)
 
@@ -2128,8 +2296,10 @@ const Scenes = {
       if (exit) {
         // after complete
         // Dom.setBlinkArrow(true, 790, 408).play();
-        setCC("Simulation Done");
+        setCC("Click 'Next' to go to next step");
+        Dom.setBlinkArrow(true, 790, 414).play();
         setIsProcessRunning(false);
+        Scenes.currentStep = 8
         return true;
       }
 
@@ -3365,6 +3535,444 @@ const Scenes = {
       return true;
     }),
 
+    //! HW Result Start - Menu 1
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+      let mask = Scenes.items.mask;
+
+      //! Required positions
+      let menu_images = [
+        Scenes.items.hw_result_menu_1_1,
+        Scenes.items.hw_result_menu_1_2,
+        Scenes.items.hw_result_menu_1_3,
+        Scenes.items.hw_result_menu_1_4,
+      ]
+
+      let button_subtitles = [
+        "Click on the Input Voltage",
+        "Click on Load Resistance",
+        "Click on Firing Angle",
+        "See the waveforms",
+      ]
+      setCC("To view the experimental waveforms select the parameters")
+      let mask_clicks = [
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,127,66,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,229,66,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,326,66,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 514,379,37,422)
+          Dom.setBlinkArrowOnElement(mask, "bottom").play()
+        },
+      ]
+
+      // setting up menu images styles
+      menu_images.forEach((image,idx)=>{
+        image.set(0,-48, 500, 950)
+        if(idx == 0){
+          image.show()
+        }else{
+          image.hide()
+        }
+        image.zIndex(idx + 1)
+      })
+
+      // * Menu button anime
+      function button_clicks(idx=0){
+        setCC(button_subtitles[idx])
+        mask_clicks[idx](()=>{
+          if(idx < menu_images.length-1)
+            menu_images[idx+1].fadeShow(1000, ()=>button_clicks(idx+1))
+          else{
+            setIsProcessRunning(false)
+            Scenes.next()
+          }
+        })
+        if(idx == menu_images.length-1){
+          return
+        }
+      }
+      button_clicks()
+      // Dom.setBlinkArrowRed(true,100,100)
+
+      return true
+    }),
+    // ! Result 1 1
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_1_1
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,550,50,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("AC supply voltage of 100 volts (RMS value) is given to the Controlled Bridge Rectifier").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 1 2
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_1_2
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,550,121,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("Load voltage is present from     ”α” to “π”.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 1 3
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_1_3
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,550,226,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("AC input current  closely follows the load voltage.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 1 4
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_1_4
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,550,294,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("Voltage across thyristor is present when it is in OFF-state and the voltage is close to zero during its ON-state.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+
+    //! HW Result Start - Menu 2
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+      let mask = Scenes.items.mask;
+
+      //! Required positions
+      let menu_images = [
+        Scenes.items.hw_result_menu_2_1,
+        Scenes.items.hw_result_menu_2_2,
+        Scenes.items.hw_result_menu_2_3,
+        Scenes.items.hw_result_menu_2_4,
+        Scenes.items.hw_result_menu_2_5,
+      ]
+
+      setCC("To view the experimental waveforms select the parameters")
+      let button_subtitles = [
+        "Click on the Input Voltage",
+        "Click on Load Resistance",
+        "Click on Load Inductance",
+        "Click on Firing Angle",
+        "See the waveforms",
+      ]
+
+      let mask_clicks = [
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,127,66,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,205,56,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165,279,56,157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 165, 354, 56, 157)
+          Dom.setBlinkArrowOnElement(mask, "left").play()
+        },
+        (onClick=()=>{})=>{
+          Dom.maskClick(mask, ()=>{
+            onClick()
+          }, 513,382,36,421)
+          Dom.setBlinkArrowOnElement(mask, "bottom").play()
+        },
+      ]
+
+      // setting up menu images styles
+      menu_images.forEach((image,idx)=>{
+        image.set(0,-48, 500, 950)
+        if(idx == 0){
+          image.show()
+        }else{
+          image.hide()
+        }
+        image.zIndex(idx + 1)
+      })
+
+      // * Menu button anime
+      function button_clicks(idx=0){
+        setCC(button_subtitles[idx])
+        mask_clicks[idx](()=>{
+          if(idx < menu_images.length-1)
+            menu_images[idx+1].fadeShow(1000, ()=>button_clicks(idx+1))
+          else{
+            setIsProcessRunning(false)
+            Scenes.next()
+          }
+        })
+        if(idx == menu_images.length-1){
+          return
+        }
+      }
+      button_clicks()
+      // Dom.setBlinkArrowRed(true,100,100)
+
+      return true
+    }),
+    // ! Result 2 1
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_2_1
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,550,62,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("AC supply voltage of 100 volts (RMS value) is given to the Controlled Bridge Rectifier.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 2 2
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_2_2
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,569,131,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("In continuous current mode of operation, the load voltage is present from   “α” to “(π+α)”").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 2 3
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_2_3
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,571,247,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("The AC input current closely follows the input voltage and its nature is decided by the RL-Load.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+
+
+      return true
+    }),
+    // ! Result 2 4
+    (function () {
+      setIsProcessRunning(true);
+      // to hide previous step
+      Dom.hideAll();
+      Scenes.items.slider_box.hide()
+
+      Scenes.items.btn_next.show()
+
+      //! Required positions
+      let mask = Scenes.items.mask;
+      Scenes.items.hw_result_2_4
+        .set(0,-48, 500, 950)
+      Dom.setBlinkArrowRed(true,562,302,30,null).play()
+      // Start
+      // Dom.maskClick(mask, ()=>{
+      //   setIsProcessRunning(false)
+      //   Scenes.next()
+      // }, 728, 79, 39, 157)
+      // Dom.setBlinkArrowOnElement(mask, "left").play()
+
+      // setCC("DC supply voltage of 12 volts is given to flyback converter and duty ratio is varied from 0.1 to 0.9.")
+      setCC("Voltage across thyristor is present when it is in OFF-state.").onend = ()=>{
+        // setCC("Click 'Next' to go to next step");
+        setTimeout(() => {
+          Dom.setBlinkArrow(true, 790, 410).play();
+          setIsProcessRunning(false);
+        }, 2000);
+      }
+      return true
+    }),
 
     //! conclusion 
     (step10 = function () {
@@ -3376,6 +3984,7 @@ const Scenes = {
       //to do slider hide from the 
 
       Scenes.items.btn_next.show();
+      Scenes.items.slider_box.hide();
 
       //! Required Items
 
@@ -3419,15 +4028,8 @@ const Scenes = {
             setCC("Simulation Done")
           }
         })
-        
-      
-
-      
-   
       return true
     }),
-
-
 
   ],
   // ! For adding realcurrentstep in every step
@@ -3463,22 +4065,32 @@ const Scenes = {
     }
   },
   next() {
+    let ignore = true
+    const ignoreDrawerProgress = ()=>{
+      let stepsToIgnore = [5,6,7,8]
+      console.log(this.realCurrentStep)
+      ignore = stepsToIgnore.indexOf(this.realCurrentStep) != -1
+      return 
+    }
     if(!this.realCurrentStep){
       Scenes.setRealCurrentStep()
     }
     //! animation isRunning
-    // alert(Scenes.currentStep)
     if (isRunning) {
-      return;
+      return
     }
     if (this.currentStep < this.steps.length) {
+      ignoreDrawerProgress()
+
       if (this.steps[this.currentStep]()) {
-        nextDrawerItem();
-        nextProgressBar();
+        if(!ignore){
+          nextDrawerItem();
+          nextProgressBar();
+        }
         this.currentStep++;
-        // alert(`After Next: ${Scenes.currentStep}`)
-      }
+      }         
     } else {
+      
     }
   },
 };
