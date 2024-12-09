@@ -11,10 +11,10 @@
         "d": "It becomes zero"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: As the firing angle 'α' increases in a single-phase controlled bridge rectifier, the portion of the AC cycle during which the thyristors conduct decreases, leading to a decrease in the average output voltage.",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -30,10 +30,10 @@
         "d": "Number of cycles per second"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Explanation 1",
+        "b": "Explanation 2: The RMS value of the output voltage in a single-phase controlled bridge rectifier with a resistive load is directly affected by the firing angle of the thyristors. ",
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -49,10 +49,10 @@
         "d": "The firing angle (α)  is π/3 radians"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: The maximum output voltage of a single-phase controlled bridge rectifier occurs when the firing angle (α) is zero.",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -68,10 +68,10 @@
         "d": "Transformer"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: A capacitor is primarily used to reduce the output voltage ripple in a single-phase controlled bridge rectifier by smoothing out fluctuations in the rectified voltage wavform.",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -87,10 +87,10 @@
         "d": "160.18 V"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3: The average value of the output load voltage and current are:<br><img src='images/expl1.png' height='60px'>",
+        "d": "Explanation 4"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -107,10 +107,10 @@
         "d": "9.22 A"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4: The average value of the output load voltage and current are:<br><img src='images/expl2.png' height='60px'>"
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
