@@ -11,10 +11,10 @@
         "d": "To store electrical energy"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: A controlled bridge rectifier converts AC into DC.",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -30,10 +30,10 @@
         "d": "Zener diodes"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3: Thyristors are controllable with firing pulses, as they require a triggering pulse to switch from OFF to ON-state.",
+        "d": "Explanation 4"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -49,12 +49,12 @@
         "d": "The capacitance of the filter capacitor"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Explanation 1",
+        "b": "Explanation 2: The firing angle in a controlled bridge rectifier determines the phase delay between the AC input and the DC output.",
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
         
@@ -68,12 +68,12 @@
         "d": "Changing the number of diodes in the bridge"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: In phase-controlled bridge rectifier, the output voltage is primarily controlled by varying the firing angle of the thyristors.  ",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     
@@ -88,10 +88,10 @@
         "d": "Reduced number of components"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3: The main advantage of a single-phase controlled bridge rectifier over an uncontrolled rectifier is the ability to control the output voltage by adjusting the firing angle of the thyristors.",
+        "d": "Explanation 4"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
