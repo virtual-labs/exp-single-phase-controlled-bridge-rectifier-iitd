@@ -185,12 +185,15 @@ The RMS value of input current is:
 
 </div>
 <br>
+<div style="float: left; width:100%;"><br>
 <center>
   <img src="images/th14b.png" >
   
 Fig. 4. Steady-state waveforms of controlled rectifier with highly inductive load
 
 </center>
+<br>
+</div>
 
 <div style="float: left; width:100%;"><br>
 Harmonic factor:
