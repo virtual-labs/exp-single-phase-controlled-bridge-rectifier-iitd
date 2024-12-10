@@ -44,8 +44,8 @@
       "question": "3. The firing angle in a controlled bridge rectifier determines:",
       "answers": {
         "a": "The frequency of the output waveform",
-        "b": "The peak value of the output voltage",
-        "c": "The phase delay between the AC input and the DC output",
+        "b": "The phase delay between the AC input and the DC output",
+        "c": "The peak value of the output voltage",
         "d": "The capacitance of the filter capacitor"
       },
       "explanations": {
@@ -62,9 +62,9 @@
 
       "question": "4. Which of the following scheme is more appropriate to realize desired output voltage in  a single-phase controlled bridge rectifier?",
       "answers": {
-        "a": "Varying the load resistance",
+        "a": "Varying the firing angle of the thyristors",
         "b": "Varying the supply voltage frequency",
-        "c": "Varying the firing angle of the thyristors",
+        "c": "Varying the load resistance",
         "d": "Changing the number of diodes in the bridge"
       },
       "explanations": {
