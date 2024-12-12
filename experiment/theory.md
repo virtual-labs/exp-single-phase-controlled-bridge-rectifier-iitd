@@ -150,7 +150,7 @@ RMS value of the fundamental current is:
 
 <img src="images/th12.png">
 <br><br>
-Fig.4a. Waveforms with R-Load.
+Fig. 4a. Waveforms with R-Load.
 <br><br>
 </center>
 </td>
@@ -160,7 +160,7 @@ Fig.4a. Waveforms with R-Load.
 
 <img src="images/th13.png">
 <br><br>
-Fig.4b. Waveforms with RL-Load.
+Fig. 4b. Waveforms with RL-Load.
 <br><br>
 </center> 
     </td>
@@ -189,7 +189,7 @@ The RMS value of input current is:
 <center>
   <img src="images/th14b.png" >
   
-Fig. 4c. Steady-state waveforms of controlled rectifier with highly inductive load
+Fig. 4c. Steady-state waveforms of controlled rectifier with highly inductive load.
 
 </center>
 <br>
