@@ -28,7 +28,7 @@ Thyristor-based rectifiers, which convert AC –to- DC, are extensively used in 
 
 <img src="images/th3.png">
 <br><br>
-Fig. 3(a). Positive-half cycle.
+Fig. 3a. Positive-half cycle.
 <br><br>
 </center>
 </td>
@@ -38,7 +38,7 @@ Fig. 3(a). Positive-half cycle.
 
 <img src="images/th4.png">
 <br><br>
-Fig. 3(b). Negative-half cycle.
+Fig. 3b. Negative-half cycle.
 <br><br>
 </center> 
     </td>
@@ -150,7 +150,7 @@ RMS value of the fundamental current is:
 
 <img src="images/th12.png">
 <br><br>
-(a) Waveforms with R-Load.
+Fig.4a. Waveforms with R-Load.
 <br><br>
 </center>
 </td>
@@ -160,7 +160,7 @@ RMS value of the fundamental current is:
 
 <img src="images/th13.png">
 <br><br>
-(b) Waveforms with RL-Load.
+Fig.4b. Waveforms with RL-Load.
 <br><br>
 </center> 
     </td>
@@ -189,7 +189,7 @@ The RMS value of input current is:
 <center>
   <img src="images/th14b.png" >
   
-Fig. 4. Steady-state waveforms of controlled rectifier with highly inductive load
+Fig. 4c. Steady-state waveforms of controlled rectifier with highly inductive load
 
 </center>
 <br>
