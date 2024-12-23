@@ -2,35 +2,96 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+
+      "question": "1. What is the function of a controlled bridge rectifier?",
+      "answers": {        
+        "a": "To convert AC voltage to DC voltage",
+        "b": "To amplify AC voltage",
+        "c": "To generate high-frequency AC voltage",
+        "d": "To store electrical energy"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1: A controlled bridge rectifier converts AC into DC.",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3",
+        "d": "Explanation 4"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
+      
     {
-      "question": "This is a Sample Question 2?",
+
+      "question": "2. Which of the following devices is controllable with firing pulses? ",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Diodes",
+        "b": "Transistors",
+        "c": "Thyristors ",
+        "d": "Zener diodes"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1",
         "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "c": "Explanation 3: Thyristors are controllable with firing pulses, as they require a triggering pulse to switch from OFF to ON-state.",
+        "d": "Explanation 4"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    
+    {
+
+      "question": "3. The firing angle in a controlled bridge rectifier determines:",
+      "answers": {
+        "a": "The frequency of the output waveform",
+        "b": "The phase delay between the AC input and the DC output",
+        "c": "The peak value of the output voltage",
+        "d": "The capacitance of the filter capacitor"
+      },
+      "explanations": {
+        "a": "Explanation 1",
+        "b": "Explanation 2: The firing angle in a controlled bridge rectifier determines the phase delay between the AC input and the DC output.",
+        "c": "Explanation 3",
+        "d": "Explanation 4"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+        
+    {
+
+      "question": "4. Which of the following scheme is more appropriate to realize desired output voltage in  a single-phase controlled bridge rectifier?",
+      "answers": {
+        "a": "Varying the firing angle of the thyristors",
+        "b": "Varying the supply voltage frequency",
+        "c": "Varying the load resistance",
+        "d": "Changing the number of diodes in the bridge"
+      },
+      "explanations": {
+        "a": "Explanation 1: In phase-controlled bridge rectifier, the output voltage is primarily controlled by varying the firing angle of the thyristors.  ",
+        "b": "Explanation 2",
+        "c": "Explanation 3",
+        "d": "Explanation 4"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    
+    {
+      
+
+      "question": "5. The main advantage of using a single-phase controlled bridge rectifier over a single-phase uncontrolled rectifier is:",
+      "answers": {
+        "a": "Higher output voltage",
+        "b": "Lower ripple voltage",
+        "c": "Ability to control the output voltage",
+        "d": "Reduced number of components"
+      },
+      "explanations": {
+        "a": "Explanation 1",
+        "b": "Explanation 2",
+        "c": "Explanation 3: The main advantage of a single-phase controlled bridge rectifier over an uncontrolled rectifier is the ability to control the output voltage by adjusting the firing angle of the thyristors.",
+        "d": "Explanation 4"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
