@@ -11,5 +11,5 @@
 
 | SNo. | Name | Department | Institute |
 | :---: | :---: | :---: | :---: | 
-| 1 | Ms. Utkarsha Dey | Dept. of Electrical Engineering | IIT Delhi |  
-| 2 | Mr. Rahul Kumar Garg | Dept. of Electrical Engineering | IIT Delhi |  
+| 1 | Ms. Poornasen | Dept. of Electrical Engineering | IIT Delhi |  
+
